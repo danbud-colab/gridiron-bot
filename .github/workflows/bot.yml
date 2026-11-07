@@ -15,7 +15,7 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
         with:
@@ -33,6 +33,10 @@ jobs:
         env:
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+          MAX_POSTS_PER_RUN: "10"
+          POST_GAP_MIN_MINUTES: "3"
+          POST_GAP_MAX_MINUTES: "5"
+          MAX_RUN_MINUTES: "45"
 
       - name: Save state (so nothing is posted twice)
         if: always()
