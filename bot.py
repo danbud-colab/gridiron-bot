@@ -47,10 +47,11 @@ LEAGUES = [x.strip() for x in os.getenv("LEAGUES", "nfl,college-football").split
 PREVIEW_HOURS = float(os.getenv("PREVIEW_HOURS_BEFORE", "6"))
 POLL_HOURS = float(os.getenv("POLL_HOURS_BEFORE", "3"))
 # Spacing: after each post the bot waits this long before the next one (inside the same run).
-POST_GAP_SECONDS = int(os.getenv("POST_GAP_SECONDS", "180"))      # preview / poll posts: 3 min apart
+POST_GAP_MIN_MINUTES = float(os.getenv("POST_GAP_MIN_MINUTES", "3"))   # preview / poll posts: random gap
+POST_GAP_MAX_MINUTES = float(os.getenv("POST_GAP_MAX_MINUTES", "5"))   # between MIN and MAX minutes
 RESULT_GAP_SECONDS = int(os.getenv("RESULT_GAP_SECONDS", "45"))   # final-score posts: shorter gap
-MAX_POSTS_PER_RUN = int(os.getenv("MAX_POSTS_PER_RUN", "12"))     # safety cap per run (0 = no cap)
-MAX_RUN_MINUTES = int(os.getenv("MAX_RUN_MINUTES", "30"))         # stop starting new posts after this
+MAX_POSTS_PER_RUN = int(os.getenv("MAX_POSTS_PER_RUN", "10"))     # safety cap per run (0 = no cap)
+MAX_RUN_MINUTES = int(os.getenv("MAX_RUN_MINUTES", "45"))         # stop starting new posts after this
 RESULT_DELAY_MIN = int(os.getenv("RESULT_DELAY_MINUTES", "10"))
 ONLY_TOP25_COLLEGE = os.getenv("ONLY_TOP25_COLLEGE", "true").lower() == "true"
 DISPLAY_TZ = ZoneInfo(os.getenv("DISPLAY_TZ", "America/New_York"))
@@ -441,7 +442,11 @@ def run(dry_run):
             if not dry_run:
                 save_state(state)
                 if i + 1 < len(jobs):
-                    gap = RESULT_GAP_SECONDS if kind == "result" else POST_GAP_SECONDS
+                    if kind == "result":
+                        gap = RESULT_GAP_SECONDS
+                    else:
+                        lo, hi = sorted((POST_GAP_MIN_MINUTES, POST_GAP_MAX_MINUTES))
+                        gap = int(random.uniform(lo, hi) * 60)
                     print(f"[info] waiting {gap}s before the next post ...")
                     time.sleep(gap)
 
