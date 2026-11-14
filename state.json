@@ -86,8 +86,12 @@
   "result": "2026-11-08T04:10:17.012354+00:00"
  },
  "college-football-401858294": {},
- "college-football-401858296": {},
- "college-football-401858301": {},
+ "college-football-401858296": {
+  "preview": "2026-11-14T11:00:24.954627+00:00"
+ },
+ "college-football-401858301": {
+  "preview": "2026-11-14T11:00:24.954627+00:00"
+ },
  "college-football-401858512": {
   "final_seen": "2026-11-07T20:50:14.994401+00:00",
   "poll": "2026-11-07T14:20:00.863515+00:00",
@@ -108,7 +112,9 @@
  },
  "college-football-401858518": {},
  "college-football-401858519": {},
- "college-football-401858522": {},
+ "college-football-401858522": {
+  "preview": "2026-11-14T11:00:24.954627+00:00"
+ },
  "college-football-401858523": {},
  "college-football-401858526": {
   "final_seen": "2026-11-14T05:40:16.985022+00:00",
