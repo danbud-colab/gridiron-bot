@@ -71,7 +71,9 @@
  "college-football-401856884": {},
  "college-football-401856885": {},
  "college-football-401856887": {},
- "college-football-401856888": {},
+ "college-football-401856888": {
+  "preview": "2026-11-14T14:00:37.460490+00:00"
+ },
  "college-football-401856889": {
   "preview": "2026-11-14T11:50:13.364863+00:00"
  },
@@ -89,9 +91,11 @@
  },
  "college-football-401858294": {},
  "college-football-401858296": {
+  "poll": "2026-11-14T14:00:37.460490+00:00",
   "preview": "2026-11-14T11:00:24.954627+00:00"
  },
  "college-football-401858301": {
+  "poll": "2026-11-14T14:00:37.460490+00:00",
   "preview": "2026-11-14T11:00:24.954627+00:00"
  },
  "college-football-401858512": {
@@ -115,6 +119,7 @@
  "college-football-401858518": {},
  "college-football-401858519": {},
  "college-football-401858522": {
+  "poll": "2026-11-14T14:00:37.460490+00:00",
   "preview": "2026-11-14T11:00:24.954627+00:00"
  },
  "college-football-401858523": {},
